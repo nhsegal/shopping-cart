@@ -1,0 +1,45 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  margin: 2rem;
+}
+
+input {
+  width: 1rem;
+}
+
+img {
+  width: 15rem;
+  height: auto;
+}
+
+.name-and-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.buy-button {
+  flex-grow: 1;
+}
+
+.qty-btn{
+  background-color: rgb(44, 44, 44);
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  font-weight: 800;
+  padding: 0;
+  margin: 2px;
+}
