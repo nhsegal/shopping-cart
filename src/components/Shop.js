@@ -1,11 +1,13 @@
 
 import "./Shop.css";
 import Item from "./Item";
+import Cart from "./Cart";
 
 const Shop = (props) => {
   const merch = props.merch;
  
   return (<>
+   <Cart cart = {props.cart}/>
   <h1>Welcome to the Shop!</h1>
   <div className="deck">
    {merch.map((entry) => (
@@ -19,6 +21,7 @@ const Shop = (props) => {
     /> 
     ))}
   </div>
+ 
   </>
   );
 };

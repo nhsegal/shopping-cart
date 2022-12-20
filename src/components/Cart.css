@@ -1,0 +1,38 @@
+.cart{
+  position: sticky;
+  background: rgb(120,120,120);
+  color: white;
+  top: 0px;
+  right: 0px;
+  width: 25%;
+  height: 100vh;
+  float: right;
+  padding: 0rem 1rem;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding-top: 1rem;
+}
+
+.itm {
+  margin-left: 1rem;
+  display: flex;
+}
+
+.qty {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.subtotal,.total-amt {
+  margin-right: 2rem;
+    margin-left: auto;
+}
+
+.total {
+  display: flex;
+  align-items: flex-end;
+}
+

@@ -33,7 +33,7 @@ const App = () => {
       setCart(updatedCart)
     }
     else { 
-      setCart([...cart, {name: newItemName, price: newItemPrice, quantity: parseInt(newItemQuantity,10 )   }])
+      setCart([...cart, {name: newItemName, price: parseInt(newItemPrice,10), quantity: parseInt(newItemQuantity,10 )   }])
     }
    console.log(cart)
   }
@@ -44,7 +44,7 @@ const App = () => {
       <Routes>
         <Route path="/"  element={<Home />} />
         <Route path="/shop" 
-          element={<Shop merch = {merch} addItemToCart = {addItemToCart}/>} />
+          element={<Shop merch = {merch} addItemToCart = {addItemToCart} cart ={cart}/>} />
       </Routes>
     </BrowserRouter>
   );
