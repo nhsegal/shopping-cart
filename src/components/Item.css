@@ -1,8 +1,8 @@
 .item {
   display: flex;
   flex-direction: column;
-  width: 15rem;
-  margin: 2rem;
+  width: 18rem;
+  margin: 0rem 0rem 2rem 0rem;
 }
 
 input {
@@ -10,7 +10,7 @@ input {
 }
 
 img {
-  width: 15rem;
+  width: 18rem;
   height: auto;
 }
 

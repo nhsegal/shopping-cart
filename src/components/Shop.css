@@ -1,1 +1,9 @@
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
+h1{
+  margin: 1rem 3rem;
+}
