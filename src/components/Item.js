@@ -2,10 +2,19 @@ import "./Item.css";
 import React from "react";
 
 const Item = (props) => {
-  const incrementItem = () =>{
-
+  const incrementItem = (ev) =>{
+    const quant = document.getElementById(`${ev.target.getAttribute('data-name')}`);
+    if (quant.value < 99){
+      quant.value = parseInt(quant.value)+1;
+    }
+    console.log(quant.value)
   }
-  const decrementItem = () =>{
+  const decrementItem = (ev) =>{
+    const quant = document.getElementById(`${ev.target.getAttribute('data-name')}`);
+    if (quant.value > 1){
+      quant.value = parseInt(quant.value)-1;
+    }
+    console.log(quant.value)
 
   }
 
@@ -17,9 +26,15 @@ const Item = (props) => {
         <div className="item-price">${props.price}</div>
       </div>
       <div className='btns'>
-        <button className="qty-btn">+</button>
-        <input className="quantity" defaultValue={1} id={props.name}/>
-        <button className="qty-btn">-</button>
+        <button className="qty-btn" 
+        data-name={props.name}
+        onClick={incrementItem}
+        >+</button>
+        <input className="quantity" defaultValue={1} id={props.name} min = {1} max = {99}/>
+        <button className="qty-btn" 
+        data-name={props.name}
+        onClick={decrementItem}
+        >-</button>
         <button className="buy-button" 
         type="button"
          data-name= {props.name} 
