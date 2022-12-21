@@ -1,5 +1,6 @@
 import React from 'react';
 import './Cart.css';
+import uniqid from "uniqid";
 
 const Cart = (props) => {
   const formatter = new Intl.NumberFormat('en-US', {
@@ -23,7 +24,7 @@ const Cart = (props) => {
       <div className='itm' key = {itm.id}>
         <div className='qty'>{itm.quantity}</div>
         <div> {itm.name}</div>
-        <div className='subtotal' id={itm.name} > {formatter.format(itm.price*itm.quantity)}</div>
+        <div className='subtotal' id={uniqid()} > {formatter.format(itm.price*itm.quantity)}</div>
       </div>
     ) )}
 
