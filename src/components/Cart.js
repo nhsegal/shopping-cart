@@ -11,12 +11,9 @@ const Cart = (props) => {
   
   if (props.cart.length > 0){
     total = props.cart.reduce( 
-      ((a,b)=>(a.price*a.quantity+b.price*b.quantity))
-    )
-    console.log("total:", total)
-  
+      (runningTotal, a)=>(a.price*a.quantity+runningTotal), 0
+    );  
   }
-  
   
   return (
    <div className='cart'>
