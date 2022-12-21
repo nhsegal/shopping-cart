@@ -12,11 +12,18 @@ input {
 img {
   width: 18rem;
   height: auto;
+  border-radius: 10px;
+
 }
 
 .name-and-price {
   display: flex;
   justify-content: space-between;
+  padding: 5px 0px;
+}
+
+.item-name{
+  font-weight: 700;
 }
 
 .btns {
