@@ -3,15 +3,18 @@ import React from "react";
 
 const Item = (props) => {
   const incrementItem = (ev) =>{
+    console.log(ev.target.getAttribute('data-name'))
     const quant = document.getElementById(`${ev.target.getAttribute('data-name')}`);
     if (quant.value < 99){
-      quant.value = parseInt(quant.value)+1;
+      quant.setAttribute('value', parseInt(quant.value)+1)
+      quant.value = parseInt(quant.value)+1;;
     }
-    console.log(quant.value)
+    console.log(quant)
   }
   const decrementItem = (ev) =>{
     const quant = document.getElementById(`${ev.target.getAttribute('data-name')}`);
     if (quant.value > 1){
+      quant.setAttribute('value', parseInt(quant.value)-1)
       quant.value = parseInt(quant.value)-1;
     }
     console.log(quant.value)
