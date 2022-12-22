@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Shop from "./Shop";
 import NavBar from "./NavBar";
+import Checkout from "./Checkout";
 import uniqid from "uniqid";
 
 import emperorTamarin from "../imgs/emperor-tamarin.jpeg";
@@ -13,6 +14,8 @@ import mandrill from "../imgs/mandrill.jpeg";
 
 const App = () => {
   const [cart, setCart] = useState([]);
+  const [cartVisible, setCartVisible] = useState(false);
+
 
   const merch = [
     { name: "Emperor Tamarin", price: 3000, image: emperorTamarin },
@@ -53,10 +56,38 @@ const App = () => {
     }
   };
 
+
+  const removeItem = (ev) => {
+    const itemToRemove = ev.target.getAttribute("data-name");
+    console.log(itemToRemove);
+    const updatedCart = [];
+    cart.forEach((el) => {
+      if (el.name !== itemToRemove) {
+        updatedCart.push(el)
+      } }
+      )
+  setCart(updatedCart);
+  }
+
+
+
+
   // Set the quantities to one after updating cart
   useEffect(() => {
     let quantities = document.querySelectorAll(".quantity");
     quantities.forEach((el) => (el.value = 1));
+  }, [cart]);
+
+
+  // Adjust visibility of cart
+  useEffect(() => {
+    if (cart.length === 0) {
+      setCartVisible(false)
+      console.log('here')
+    } else {
+      setCartVisible(true)
+      console.log('there')
+    }
   }, [cart]);
 
   return (
@@ -67,7 +98,13 @@ const App = () => {
         <Route
           path="/shop"
           element={
-            <Shop merch={merch} addItemToCart={addItemToCart} cart={cart} />
+            <Shop merch={merch} addItemToCart={addItemToCart} cart={cart} removeItem={removeItem} cartVisible={cartVisible}/>
+          }
+        />
+         <Route
+          path="/checkout"
+          element={
+            <Checkout/>
           }
         />
       </Routes>

@@ -1,8 +1,10 @@
 import React from "react";
 import "./Cart.css";
 import uniqid from "uniqid";
+import { Link } from "react-router-dom";
 
 const Cart = (props) => {
+  console.log(props.cartVisible)
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -17,12 +19,14 @@ const Cart = (props) => {
     );
   }
 
+
   return (
-    <div className="cart">
+    <div className={`cart ${props.cartVisible ? "cart-visible" : ""}`}>
       <div className="title">Shopping Cart:</div>
 
       {props.cart.map((itm) => (
-        <div className="itm" key={itm.id}>
+        <div className="itm" key={itm.id} >
+          <button className="remove-btn" onClick={props.removeItem} data-name={itm.name}>✕</button>
           <div className="qty">{itm.quantity}</div>
           <div> {itm.name}</div>
           <div className="subtotal" id={uniqid()}>
@@ -38,7 +42,10 @@ const Cart = (props) => {
           {formatter.format(total)}
         </div>
       </div>
-      <button className="checkout-btn">Checkout</button>
+      <Link to="/checkout" aria-label="Checkout">
+      <button className="checkout-btn" >Checkout</button>
+      </Link>
+    
     </div>
   );
 };

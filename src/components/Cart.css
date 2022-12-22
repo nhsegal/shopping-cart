@@ -8,6 +8,12 @@
   height: 100vh;
   float: right;
   padding: 0rem 1rem;
+  display: none;
+
+}
+
+.cart-visible{
+  display: block !important;
 }
 
 .title {
@@ -45,4 +51,9 @@
   margin: 20px 2rem;
   padding: 10px 10%;
   float: right;
+}
+
+.remove-btn {
+  border: none;
+  background: rgb(120,120,120);
 }
