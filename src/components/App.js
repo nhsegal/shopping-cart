@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Checkout from "./Checkout";
 import uniqid from "uniqid";
 
+
 import emperorTamarin from "../imgs/emperor-tamarin.jpeg";
 import japaneseMacaque from "../imgs/japanese-macaque.jpeg";
 import proboscis from "../imgs/proboscis-monkey.jpeg";
@@ -15,6 +16,8 @@ import mandrill from "../imgs/mandrill.jpeg";
 const App = () => {
   const [cart, setCart] = useState([]);
   const [cartVisible, setCartVisible] = useState(false);
+
+
 
   const merch = [
     { name: "Emperor Tamarin", price: 3000, image: emperorTamarin },
@@ -86,7 +89,7 @@ const App = () => {
     <BrowserRouter basename="/">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route
           path="/shop"
           element={
