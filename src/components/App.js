@@ -16,7 +16,6 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [cartVisible, setCartVisible] = useState(false);
 
-
   const merch = [
     { name: "Emperor Tamarin", price: 3000, image: emperorTamarin },
     { name: "Japanese Macaque", price: 4000, image: japaneseMacaque },
@@ -56,21 +55,17 @@ const App = () => {
     }
   };
 
-
   const removeItem = (ev) => {
     const itemToRemove = ev.target.getAttribute("data-name");
-    console.log(itemToRemove);
+
     const updatedCart = [];
     cart.forEach((el) => {
       if (el.name !== itemToRemove) {
-        updatedCart.push(el)
-      } }
-      )
-  setCart(updatedCart);
-  }
-
-
-
+        updatedCart.push(el);
+      }
+    });
+    setCart(updatedCart);
+  };
 
   // Set the quantities to one after updating cart
   useEffect(() => {
@@ -78,35 +73,33 @@ const App = () => {
     quantities.forEach((el) => (el.value = 1));
   }, [cart]);
 
-
   // Adjust visibility of cart
   useEffect(() => {
     if (cart.length === 0) {
-      setCartVisible(false)
-      console.log('here')
+      setCartVisible(false);
     } else {
-      setCartVisible(true)
-      console.log('there')
+      setCartVisible(true);
     }
   }, [cart]);
 
   return (
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename="/">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/shop"
           element={
-            <Shop merch={merch} addItemToCart={addItemToCart} cart={cart} removeItem={removeItem} cartVisible={cartVisible}/>
+            <Shop
+              merch={merch}
+              addItemToCart={addItemToCart}
+              cart={cart}
+              removeItem={removeItem}
+              cartVisible={cartVisible}
+            />
           }
         />
-         <Route
-          path="/checkout"
-          element={
-            <Checkout/>
-          }
-        />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
