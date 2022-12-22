@@ -86,10 +86,10 @@ const App = () => {
   }, [cart]);
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/shopping-cart">
       <NavBar />
       <Routes>
-        <Route path="" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/shop"
           element={
